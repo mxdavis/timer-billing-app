@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'requires a valid email' do
-      user1 = build(:user, email: 'firstname')
+      user1 = build(:user, email: 'firstname@a.')
       user2 = build(:user, email: 'firstname@company')
       user3 = build(:user, email: 'firstname.com')
 
