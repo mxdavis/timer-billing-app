@@ -60,6 +60,9 @@ Routes
 /tasks/active
 /users/:id
 
+login
+logout
+
 all slips should be new to old
 
 POST/PATCH
