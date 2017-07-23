@@ -50,8 +50,23 @@ Things to think about:
      2. project bill_rate
      3. user bill_rate
 
+-------
+Routes
+-------
+/ Home Route 
+/tasks/new
+/tasks/all
+/tasks/billed
+/tasks/active
+/users/:id
 
+all slips should be new to old
+
+POST/PATCH
+/tasks/create
+/tasks/id (edit/delete)
+/users/id (edit/delete)
 
 Later on:
 
-When user gets deleted all their data gets deleted, or should it be inactive?
+When user gets deleted all their data gets deleted, or should it be inactive? dependent destroy
