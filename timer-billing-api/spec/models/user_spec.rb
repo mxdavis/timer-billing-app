@@ -31,10 +31,17 @@ RSpec.describe User, type: :model do
 
   describe 'relationships' do
     
-    it 'has many clients'
+    it 'has many clients' do
+      user = create(:user)
 
-    it 'has many projects through clients'
+      expect(user.clients).not_to eq(nil)
+    end
 
+    it 'has many projects through clients' do
+      user = create(:user)
+
+      expect(user.projects).not_to eq(nil)   
+    end   
   end
 
       
