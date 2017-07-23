@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :project do
-    client nil
+    company nil
     name "MyString"
     bill_rate 1.5
   end
