@@ -52,8 +52,3 @@ Things to think about:
 
 
 
-
-
-     AT THE END:
-
-     IF want to come back can make tests on relationships but then have to make sure that belongs to is not required.

@@ -26,6 +26,17 @@ RSpec.describe Company, type: :model do
       expect(company3.valid?).to equal(false)
       expect(company1.errors.full_messages).to include("Email is invalid")
     end
+  end
+
+  describe 'relationships' do
+    
+    it 'belongs to a user' do 
+      company = create(:company)
+
+      expect(company.user.name).to eq("Malki Davis")
+    end
+
+    it 'has many projects'
 
   end
 end

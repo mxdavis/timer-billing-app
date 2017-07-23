@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration[5.1]
       t.string :bill_time
       t.float :bill_rate
       t.text :description
-      t.boolean :billed
+      t.boolean :billed, default: false
 
       t.timestamps
     end

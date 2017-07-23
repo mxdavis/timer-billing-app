@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170723160532) do
     t.string "bill_time"
     t.float "bill_rate"
     t.text "description"
-    t.boolean "billed"
+    t.boolean "billed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_tasks_on_project_id"

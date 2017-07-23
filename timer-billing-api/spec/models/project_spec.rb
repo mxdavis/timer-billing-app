@@ -8,4 +8,15 @@ RSpec.describe Project, type: :model do
       expect(project.errors.full_messages).to include("Name can't be blank")
     end
   end
+  describe 'relationships' do
+    
+    it 'belongs to a company' do 
+      project = create(:project)
+
+      expect(project.company.name).to eq("Apple Co.")
+    end
+
+    it 'has many projects'
+
+  end
 end
