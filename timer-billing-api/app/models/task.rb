@@ -4,11 +4,10 @@ class Task < ApplicationRecord
   belongs_to :project
 
   validates :bill_time, presence: true
-  before_save :convert_bill_time_to_decimal
+  before_validation :convert_bill_time_to_decimal
 
   def convert_bill_time_to_decimal
-    binding.pry
-    if bill_time_before_type_cast =~ /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/
+    if bill_time =~ /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/
       time_pieces = bill_time.split(":")
       hours = time_pieces[0].to_i
       minutes = (time_pieces[1].to_f/60.0)
