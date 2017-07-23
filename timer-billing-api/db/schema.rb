@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170723160532) do
 
   create_table "tasks", force: :cascade do |t|
     t.bigint "project_id"
-    t.float "bill_time"
+    t.string "bill_time"
     t.float "bill_rate"
     t.text "description"
     t.boolean "billed"
