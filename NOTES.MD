@@ -1,6 +1,6 @@
 Build Backend:
 
-1. Create users: name*, email*, company name, default billing rate
+1. Create users: name*, email*, company name, default billing rate, auth-id
 2. Login through Google or github which then routes to their edit page so they can change the email and company name
 3. Clients - Name, has many Projects
 4. Projects - Belongs to Client, name, billing rate (which defaults to client billing rate -- I think the client billing rate will show up in the slip, but it can be overridden. At that point it gets saved.)
