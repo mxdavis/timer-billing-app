@@ -12,12 +12,6 @@ RSpec.describe Task, type: :model do
       expect(task.bill_time).to eq("1.5")
     end
 
-    it 'accepts decimal and saves' do
-      task = build(:task, bill_time: 1.5)
-      task.save
-
-      expect(task.bill_time).to eq("1.5")
-    end
 
     it 'requires a project' do
       task = build(:task, project: nil)
@@ -50,5 +44,23 @@ RSpec.describe Task, type: :model do
       task.save
       expect(task.total).to eq(150)
     end
+  end
+
+  describe 'billed time' do
+    it 'accepts decimal and saves' do
+      task = build(:task, bill_time: 1.5)
+      task.save
+
+      expect(task.bill_time).to eq("1.5")
+    end
+
+    it 'accepts decimal and updates after it was already saved' do
+      task = create(:task, bill_time: 1.5)
+      task.bill_time = "2:30:00"
+      task.save
+
+      expect(task.bill_time).to eq("2.5")
+    end
+
   end
 end
