@@ -34,4 +34,21 @@ RSpec.describe Task, type: :model do
       expect(task.project.name).to eq("Software Dev")
     end
   end
+
+  describe 'total' do
+    
+    it 'task should automatically calculate total upon save' do
+      task = create(:task)
+      total = task.bill_time.to_f * task.bill_rate
+      expect(task.total).to eq(total)
+    end
+
+    it 'task should replace with new total if updated' do
+      task = create(:task)
+      task.bill_time = 1
+      task.bill_rate = 150
+      task.save
+      expect(task.total).to eq(150)
+    end
+  end
 end
