@@ -10,10 +10,10 @@ RSpec.describe Project, type: :model do
   end
   describe 'relationships' do
     
-    it 'belongs to a company' do 
+    it 'belongs to a client' do 
       project = create(:project)
 
-      expect(project.company.name).to eq("Apple Co.")
+      expect(project.client.name).to eq("Apple Co.")
     end
 
     it 'has many projects'

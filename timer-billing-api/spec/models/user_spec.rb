@@ -31,9 +31,9 @@ RSpec.describe User, type: :model do
 
   describe 'relationships' do
     
-    it 'has many companies'
+    it 'has many clients'
 
-    it 'has many projects through companies'
+    it 'has many projects through clients'
 
   end
 

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :companies
-  has_many :projects, through: :companies
+  has_many :clients
+  has_many :projects, through: :clients
 
   validates :name, presence: true
   validates :email, presence: true

@@ -11,7 +11,7 @@ end
 
 # seed with a billing rate
 20.times do 
-  Company.create(
+  Client.create(
     name: Faker::Company.name, 
     email: Faker::Internet.email,
     user_id: rand(1..10)
@@ -22,7 +22,7 @@ end
 40.times do 
   Project.create(
     name: Faker::Company.bs,
-    company_id: rand(1..20),
+    client_id: rand(1..20),
     bill_rate: Faker::Number.decimal(2)
   )
 end

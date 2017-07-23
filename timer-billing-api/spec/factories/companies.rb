@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :company do
+  factory :client do
     user
     name "Apple Co."
     email "apple@apple.com"

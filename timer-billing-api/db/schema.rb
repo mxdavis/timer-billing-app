@@ -15,22 +15,22 @@ ActiveRecord::Schema.define(version: 20170723160532) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "companies", force: :cascade do |t|
+  create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_companies_on_user_id"
+    t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
-    t.bigint "company_id"
+    t.bigint "client_id"
     t.string "name"
     t.float "bill_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_projects_on_company_id"
+    t.index ["client_id"], name: "index_projects_on_client_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20170723160532) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "companies", "users"
-  add_foreign_key "projects", "companies"
+  add_foreign_key "clients", "users"
+  add_foreign_key "projects", "clients"
   add_foreign_key "tasks", "projects"
 end
