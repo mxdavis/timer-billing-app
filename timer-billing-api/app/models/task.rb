@@ -2,7 +2,8 @@ require 'pry'
 
 class Task < ApplicationRecord
   belongs_to :project
-
+  
+  validates :project, presence: true
   validates :bill_time, presence: true
   before_validation :convert_bill_time_to_decimal
 
