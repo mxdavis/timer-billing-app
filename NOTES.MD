@@ -49,3 +49,11 @@ Things to think about:
      1. if someone overwrites it in the task aka the task bill rate
      2. project bill_rate
      3. user bill_rate
+
+
+
+
+
+     AT THE END:
+
+     IF want to come back can make tests on relationships but then have to make sure that belongs to is not required.
