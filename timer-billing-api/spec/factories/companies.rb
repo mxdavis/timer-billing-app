@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :company do
-    name "MyString"
-    email "MyString"
-    user nil
+    name "Apple Co."
+    email "apple@apple.com"
+    user 1
   end
 end

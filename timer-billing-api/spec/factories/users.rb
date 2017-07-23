@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-    email "MyString"
-    company_name "MyString"
-    bill_rate 1.5
+    name "Malki Davis"
+    email "malki@davis.com"
+    company_name "My Company"
+    bill_rate 200
     auth_id 1
   end
 end
