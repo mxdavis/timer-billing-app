@@ -13,7 +13,18 @@ RSpec.describe User, type: :model do
     it 'requires an email' do
       user = build(:user, email: nil)
       expect(user.valid?).to equal(false)
-      expect(user.errors.full_messages).to eq(["Email can't be blank"])
+      expect(user.errors.full_messages).to eq(["Email can't be blank", "Email is invalid"])
+    end
+
+    it 'requires a valid email' do
+      user1 = build(:user, email: 'firstname')
+      user2 = build(:user, email: 'firstname@company')
+      user3 = build(:user, email: 'firstname.com')
+
+      expect(user1.valid?).to equal(false)
+      expect(user2.valid?).to equal(false)
+      expect(user3.valid?).to equal(false)
+      expect(user1.errors.full_messages).to eq(["Email is invalid"])
     end
 
   end
