@@ -12,21 +12,22 @@ Can only use default billing rate, or else replace it in the task slip. In a fut
 
 API:
 
-{
-  Client: {
-    Name: ''
-    Projects: {
-      Name: Project 1
-      Billing Rate: 'Default Rate'
-      Tasks:{
-        Time: 1.5
-        Description: "Lorum Ipsum"
-        Billed: False
+{User : {
+    Client: {
+      Name: ''
+      Projects: {
+        Name: Project 1
+        Billing Rate: 'Default Rate'
+        Tasks:{
+          Time: 1.5
+          Description: "Lorum Ipsum"
+          Billed: False
+        }
       }
-    }
-    {
-      Name: Project 2
-      Billing Rate: 'Default Rate'
+      {
+        Name: Project 2
+        Billing Rate: 'Default Rate'
+      }
     }
   }
 }
@@ -40,3 +41,11 @@ Front End:
   d. Multiple timers should be able to be active at once
 2. Unbilled Slips, should show all unbilled slips from old to new. These all should have an edit button so all fields can be edited. Can have a delete button to delete the slip. Should have the ability to mark as billed, which then moves it to the Billed Slips.
 3. Billed Slips, shows all the billed slips from New to Old. These cannot be edited or deleted. Just viewed. At this stage, maybe they will just be listed.
+
+Things to think about:
+
+  1. How will the billing rate override a previous one?
+     Order of importance:
+     1. if someone overwrites it in the task aka the task bill rate
+     2. project bill_rate
+     3. user bill_rate
