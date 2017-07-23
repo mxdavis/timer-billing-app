@@ -52,3 +52,6 @@ Things to think about:
 
 
 
+Later on:
+
+When user gets deleted all their data gets deleted, or should it be inactive?
