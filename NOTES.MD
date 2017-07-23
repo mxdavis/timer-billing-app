@@ -4,7 +4,7 @@ Build Backend:
 2. Login through Google or github which then routes to their edit page so they can change the email and company name
 3. Clients - Name, email has many Projects
 [X] 4. Projects - Belongs to Client, name, billing rate (which defaults to client billing rate -- I think the client billing rate will show up in the slip, but it can be overridden. At that point it gets saved.)
-[] 5. Task, belongs to client through project, belongs to project, has a billing time - upon save it gets converted to decimal point if it is in hour format, has a billing rate through project, description, billed: boolean.
+[X] 5. Task, belongs to client through project, belongs to project, has a billing time - upon save it gets converted to decimal point if it is in hour format, has a billing rate through project, description, billed: boolean.
 6. A user can only see their slips.
 
 Version 1.0 
