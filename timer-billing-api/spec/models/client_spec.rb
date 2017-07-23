@@ -26,6 +26,12 @@ RSpec.describe Client, type: :model do
       expect(client3.valid?).to equal(false)
       expect(client1.errors.full_messages).to include("Email is invalid")
     end
+
+    it 'requires a user' do
+      client = build(:client, user: nil)
+      expect(client.valid?).to equal(false)
+      expect(client.errors.full_messages).to include("User can't be blank")
+    end
   end
 
   describe 'relationships' do
@@ -36,7 +42,16 @@ RSpec.describe Client, type: :model do
       expect(client.user.name).to eq("Malki Davis")
     end
 
-    it 'has many projects'
+    it 'has many projects' do
+      client = create(:client)
 
+      expect(client.projects).not_to eq(nil)
+    end
+
+    it 'has many tasks through projects' do
+      client = create(:client)
+
+      expect(client.tasks).not_to eq(nil)
+    end
   end
 end
