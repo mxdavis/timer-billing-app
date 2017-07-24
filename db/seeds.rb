@@ -33,6 +33,7 @@ end
     description: Faker::Company.catch_phrase,
     billed: [true, false].sample,
     bill_time: Faker::Number.decimal(2),
-    bill_rate: Faker::Number.decimal(2)
+    bill_rate: Faker::Number.decimal(2),
+    date: Faker::Date.backward(30)
   )
 end
