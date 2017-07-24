@@ -1,5 +1,8 @@
 class Api::V1::UsersController < ApplicationController
 
+  def home
+    render json: {message: "You are home"}
+  end
   def show
     user = User.find_by(id: params[:user_id])
     render json: user
