@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get root => 'users#home'
+  get '/' => 'home#home'
 
   namespace :api do 
     namespace :v1 do
