@@ -61,6 +61,14 @@ RSpec.describe Task, type: :model do
 
       expect(task.bill_time).to eq("2.5")
     end
+  end
 
+  describe 'newest' do
+    it 'shows the tasks in order from newest to oldest' do
+      task1 = create(:task, date: "2001-01-01")
+      task2 = create(:task, date: "2002-02-02")
+      all_tasks_from_newest_to_oldest = Task.newest
+      expect(all_tasks_from_newest_to_oldest.first).to eq(task2)
+    end
   end
 end
