@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?, :can_edit?
 
   def current_user
