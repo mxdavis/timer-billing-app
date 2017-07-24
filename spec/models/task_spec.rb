@@ -1,6 +1,5 @@
 require 'rails_helper'
-require 'pry'
-   
+  
 RSpec.describe Task, type: :model do
    
    describe 'validations' do

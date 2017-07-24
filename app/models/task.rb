@@ -1,5 +1,3 @@
-require 'pry'
-
 class Task < ApplicationRecord
   belongs_to :project
   
