@@ -4,7 +4,7 @@ FactoryGirl.define do
     bill_rate 175
     description "This is the project task I did for you."
     billed false
-    date 07-24-2014
+    date "2014-7-24"
     project
   end
 end
