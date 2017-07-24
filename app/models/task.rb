@@ -22,4 +22,8 @@ class Task < ApplicationRecord
     total = bill_time.to_f * bill_rate
     self.total = total.round(2)
   end
+
+  def self.newest
+    order("DATE DESC")
+  end
 end
