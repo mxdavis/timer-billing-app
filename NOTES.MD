@@ -39,6 +39,9 @@ Front End:
   b. Task can be paused, so the timer is paused, but we should not lose the timer even if the site is closed out and re-opened
   c. Timer can be saved and should be saved to the database as unbilled
   d. Multiple timers should be able to be active at once
+
+  To create a new timer use this API - 
+  http://127.0.0.1:3000/api/v1/users/1/clients
 2. Unbilled Slips, should show all unbilled slips from old to new. These all should have an edit button so all fields can be edited. Can have a delete button to delete the slip. Should have the ability to mark as billed, which then moves it to the Billed Slips.
 3. Billed Slips, shows all the billed slips from New to Old. These cannot be edited or deleted. Just viewed. At this stage, maybe they will just be listed.
 
