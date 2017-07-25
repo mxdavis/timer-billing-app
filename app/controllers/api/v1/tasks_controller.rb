@@ -5,7 +5,7 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def unbilled
-    render json: tasks(false)
+    render json: tasks(true)
   end
 
   def create
@@ -15,7 +15,7 @@ class Api::V1::TasksController < ApplicationController
   private
 
   def tasks(billed_status)
-    Task.newest.select do |task|
+    Task.newest.map do |task|
       if task.billed == billed_status
         {
           client: task.project.client.name,
