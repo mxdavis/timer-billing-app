@@ -7,10 +7,11 @@ class Api::V1::ClientsController < ApplicationController
   end
 
   def create
-    user = User.find_by(id: params[:user_id])
-    client = user.clients.build(client_params)
+    user = User.find_by(id: params["user_id"])
+    client = Client.new(client_params)
+    client.user = user
     if client.save
-      render json: { id: client_id, success: 'ok'}
+      render json: { id: client, success: 'ok'}
     else
       render json: { message: "error, #{client.errors}"}, status: 412
     end
