@@ -27,7 +27,8 @@ class Api::V1::TasksController < ApplicationController
           description: task.description,
           total: task.total,
           billed: task.billed, 
-          date: task.date
+          date: task.date,
+          task_id: task.id
         }
       end
     end
