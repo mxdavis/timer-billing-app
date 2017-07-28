@@ -1,11 +1,13 @@
 class Api::V1::TasksController < ApplicationController
   
   def billed
-    render json: tasks(true)
+    user = User.find_by(id: params[:user_id])
+    render json: tasks(true, user)
   end
 
   def unbilled
-    render json: tasks(false)
+    user = User.find_by(id: params[:user_id])
+    render json: tasks(false, user)
   end
 
   def create
@@ -14,9 +16,9 @@ class Api::V1::TasksController < ApplicationController
 
   private
 
-  def tasks(billed_status)
+  def tasks(billed_status, user)
     Task.newest.map do |task|
-      if task.billed == billed_status
+      if task.billed == billed_status && task.project.client.user == user
         {
           client: task.project.client.name,
           client_id: task.project.client.id,
