@@ -5,7 +5,7 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def unbilled
-    render json: tasks(true)
+    render json: tasks(false)
   end
 
   def create
