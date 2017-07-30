@@ -76,3 +76,4 @@ POST/PATCH
 Later on:
 
 When user gets deleted all their data gets deleted, or should it be inactive? dependent destroy
+add in react select for dropdown
