@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :users do
         get '/unbilled_tasks' => 'tasks#unbilled'
         get '/billed_tasks' => 'tasks#billed'
-        resources :tasks, :clients
+        resources :tasks, :clients, :projects
       end
     end
   end
