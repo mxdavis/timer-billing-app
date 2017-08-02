@@ -1,7 +1,14 @@
 class Api::V1::ProjectsController < ApplicationController
 
   def create
-    if client = Client.find_by(id: params[:clientId])
+    if params[:clientName]
+      user = User.find_by(id: params[:user_id])
+      client = user.clients.limit(3).order('id desc').find_by(name: params[:clientName])
+    else
+      client = Client.find_by(id: params[:clientId])
+    end
+
+    if client
       project = client.projects.build(project_params)
       if project.save
         render json: { id: project, success: 'ok'}
