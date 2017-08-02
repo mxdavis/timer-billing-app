@@ -6,7 +6,7 @@ class Api::V1::ProjectsController < ApplicationController
       if project.save
         render json: { id: project, success: 'ok'}
       else
-        render json: { message: "error, #{project.errors}"}, status: 412
+        render json: { message: "error, #{project.errors.full_messages}"}, status: 412
       end
     else 
       render json: { message: "no project found for this project"}, status: 412

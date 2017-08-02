@@ -13,7 +13,7 @@ class Api::V1::ClientsController < ApplicationController
     if client.save
       render json: { id: client, success: 'ok'}
     else
-      render json: { message: "error, #{client.errors}"}, status: 412
+      render json: { message: "error, #{client.errors.full_messages}"}, status: 412
     end
   end
 
