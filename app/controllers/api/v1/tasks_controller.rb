@@ -51,6 +51,17 @@ class Api::V1::TasksController < ApplicationController
 
   end
 
+  def destroy
+    task = Task.find_by(id: params[:id])
+
+    if task.delete
+      render json: { message: "task deleted", success: 'ok'}
+    else
+      render json: { message: "error, #{task.errors.full_messages}"}, status: 412
+    end
+
+  end
+
   private
 
   def tasks(billed_status, user)
