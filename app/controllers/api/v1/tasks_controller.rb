@@ -11,31 +11,42 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def create
-    client = Client.find_by(id: params[:clientValue][:value])
+
+    if params[:clientValue][:value]
+      client = Client.find_by(id: params[:clientValue][:value]) 
+    else
+      client = Task.find_by(id: params[:task_id]).project.client
+    end
 
     if params[:projectValue][:className]
       project = client.projects.create(name: project_name)
-    else 
+    elsif params[:projectValue][:value]
       project = Project.find_by(id: params[:projectValue][:value])
+    else
+      project = Task.find_by(id: params[:task_id]).project
     end
 
-    if project.valid?
-      task = project.tasks.new(task_description_and_bill_time)
+    if params[:task_id]
+      task = Task.find_by(id: params[:task_id])
+      task.project = project
+    else
+      task = project.tasks.new()
+    end
       
-      if project.bill_rate
-        task.bill_rate = project.bill_rate
-      else 
-        user = User.find_by(id: params[:user_id])
-        task.bill_rate = user.bill_rate
-      end
+    if project.bill_rate
+      task.bill_rate = project.bill_rate
+    else 
+      user = User.find_by(id: params[:user_id])
+      task.bill_rate = user.bill_rate
+    end
 
-      task.date = project_date
-      
-      if task.save 
-        render json: { id: task, success: 'ok'}
-      else
-        render json: { message: "error, #{task.errors}"}, status: 412
-      end
+    task.date = project_date
+    task.assign_attributes(task_description_and_bill_time)
+    
+    if task.save 
+      render json: { id: task, success: 'ok'}
+    else
+      render json: { message: "error, #{task.errors}"}, status: 412
     end
 
   end
