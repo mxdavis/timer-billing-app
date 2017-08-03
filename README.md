@@ -1,24 +1,36 @@
-# README
+This is the API side of the Timer Billing App.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The client repo can be found at - https://github.com/mxdavis/timer-billing-client
 
-Things you may want to cover:
+It is an open sourced billing app made by and for developers.
 
-* Ruby version
+If you fork or clone the repo, upon download you need to run:
 
-* System dependencies
+pg_ctl -D /usr/local/var/postgres start
+rails db:create
+rails db:migrate
+rails db:seed -- if you want seeded data via Faker
+rails start - You will need to run rails start before starting the client side, because rails needs to run on port 3000, while yarn should run on 3001
 
-* Configuration
+Submit any issues or feature requests via a pull request.
 
-* Database creation
+This app is deployed to heroku:
 
-* Database initialization
+https://bill-timer-client.herokuapp.com/
 
-* How to run the test suite
+I hope you find it useful.
 
-* Services (job queues, cache servers, search engines, etc.)
+Version 1.0 includes:
 
-* Deployment instructions
+- Adding projects
+- Adding clients
+- Adding tasks
+- Deleting unbilled tasks
+- Editing unbilled tasks
+- Viewing all tasks
 
-* ...
+Coming soon: 
+
+Login via Github
+Timer for Tasks
+Mark tasks as billed and download as bill
