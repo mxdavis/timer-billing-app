@@ -81,7 +81,7 @@ class Api::V1::TasksController < ApplicationController
           task_id: task.id
         }
       end
-    end
+    end.select{|t| t != nil}
   end
 
   def project_name
